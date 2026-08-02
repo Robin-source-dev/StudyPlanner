@@ -56,4 +56,21 @@ nav a:hover,nav a.active{
 .dashboard h2{
     margin-bottom: 20px;
 }
-
+/*Upcoming*/
+.upcoming{
+    width: 90%;
+    margin: 60px auto;
+}
+.upcoming h2{
+    margin-bottom: 20px;
+}
+#upcomingTasks{
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    padding: 30px;
+}
+.empty-message{
+    text-align: center;
+    color: #6b7280;
+}
