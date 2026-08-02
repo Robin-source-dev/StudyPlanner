@@ -105,3 +105,11 @@ nav a:hover,nav a.active{
 .feature-card p{
     color: #6b7280;;
 }
+/*footer*/
+footer{
+    margin-top: 70px;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
