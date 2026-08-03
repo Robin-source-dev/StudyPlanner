@@ -35,7 +35,101 @@
             <p>
                 Fill in the details below to create a new assignment, project, exam reminder or study session.
             </p>
-            
+
+        </section>
+
+        <!--Form-->
+
+        <section>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="course">
+                        Course Name
+                    </label>
+
+                    <input 
+                        type="text"
+                        id="course"
+                        placeholder="e.g. Software Development"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">
+                        Task Title
+                    </label>
+
+                    <input 
+                        type="text"
+                        id="title"
+                        placeholder="e.g. Javascript Project"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dueDate">
+                        Due Date
+                    </label>
+
+                    <input 
+                        type="date"
+                        id="dueDate"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="priority">
+                        Priority
+                    </label>
+
+                    <select id="priority" required>
+
+                        <option value="">
+                            Select Priority
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea 
+                    id="description"
+                    rows="5"
+                    placeholder="Enter task description..."
+                    required></textarea>
+
+                </div>
+
+                <div class="task-buttons">
+
+                    <button type="submit">
+                        Save Task
+                    </button>
+
+                    <button type="reset" class="delete">
+                        Clear Form
+                    </button>
+
+                </div>
+
+            </form>
         </section>
     </main>
 </body>
