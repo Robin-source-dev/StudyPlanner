@@ -53,3 +53,45 @@ function saveTask(event){
     //Redirect to task list
     window.location.href = "tasks.html"
 }
+
+//Validate user input
+function validateInput(course,title,dueDate,priority,description){
+    if(course === ""){
+        alert("Please enter the course name.")
+        return false
+    }
+
+    if(title === ""){
+        alert("Please enter the task title.")
+        return false
+    }
+
+    if(dueDate === ""){
+        alert("Please select a due date.")
+        return false
+    }
+
+    if(priority === ""){
+        alert("Please select a priority.")
+        return false
+    }
+
+    if(description === ""){
+        alert("Please enter a task description.")
+        return false
+    }
+
+    //Prevent selecting a past date
+    const today = new Date()
+    today.setHours(0, 0 ,0, 0)
+
+    const selectedDate = new Date(dueDate)
+
+    if(selectedDate < today){
+        alert("The due date cannot be in the past.")
+        return false
+    }
+
+    return true
+
+}
