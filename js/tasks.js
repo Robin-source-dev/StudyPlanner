@@ -14,3 +14,98 @@ searchInput.addEventListener("input", displayTasks)
 
 //Filter tasks
 priorityFilter.addEventListener("change", displayTasks)
+
+//Display all tasks
+function displayTasks(){
+
+    //Retrieve tasks
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+
+    //Search value
+    const searchValue = searchInput.value.toLowerCase()
+
+    //Filter value
+    const priorityValue = priorityFilter.value
+
+    //Filter tasks
+    tasks = tasks.filter(task => {
+        const matchesSearch =
+            task.title.toLowerCase().includes(searchValue) ||
+            task.course.toLowerCase().includes(searchValue)
+
+        const matchesPriority = 
+            priorityValue === "All"
+            task.priority === priorityValue
+
+        return matchesSearch && matchesPriority
+    })
+
+    //Clear previous tasks
+    taskContainer.innerHTML = ""
+
+    //No tasks available 
+    if(tasks.length === 0){
+        taskContainer.innerHTML = `
+            <div class = "card"
+                <h3>No Tasks Found</h3>
+                <p>Add a task from the Add Task page.</p>
+            </div>`
+        
+        return
+    }
+
+    //Display each task
+    tasks.forEach(task =>{
+
+        const taskCard = document.createElement("div")
+        taskCard.className = "task-card"
+        taskCard.innerHTML = `
+
+            <h3>${task.title}</h3>
+
+            <p><strong>Course:</strong>${task.course}</p>
+
+            <p><strong>Due Date:</strong>${formatDate(task.dueDate)}</p>
+
+            <p><strong>Priority:</strong>${task.priority}</p>
+
+            <p><strong>Description:</strong>${task.description}</p>
+
+            <p>
+                <strong>Status:</strong>
+                ${task.completed ? "Completed ✅" : "Pending ⌛"}
+            </p>
+
+            <div class="task-buttons">
+
+                <button
+                    class="complete"
+                    onclick="toggleComplete(${task.id})">
+
+                    ${task.completed ? "Undo" : "Complete"}
+
+                </button>
+
+                <button
+                    class="edit"
+                    onclick="editTask(${task.id})">
+
+                    Edit
+
+                </button>
+
+                <button
+                    class="delete"
+                    onclick="deleteTask(${task.id})">
+
+                    Delete
+
+                </button>
+
+            </div>
+        `
+
+        taskContainer.appendChild(taskCard)
+        
+    })
+}
