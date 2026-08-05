@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     font-family: 'Poppins',sans-serif;
     background: #f5f7fb;
@@ -48,6 +53,19 @@ nav a:hover,nav a.active{
     color: #6b7280;
     margin-bottom: 35px;
 }
+/*Buttons*/
+.btn{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:8px;
+    transition:.3s;
+}
+.btn:hover{
+    background: #1d4ed8;
+}
 /*Dashboard*/
 .dashboard{
     width: 90%;
@@ -55,6 +73,28 @@ nav a:hover,nav a.active{
 }
 .dashboard h2{
     margin-bottom: 20px;
+}
+/*Cards*/
+.stats-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    text-align:center;
+}
+.card h3{
+    margin-bottom:15px;
+    color:#0f172a;
+}
+.card p{
+    font-size:2.3rem;
+    font-weight:bold;
+    color:#2563eb;
 }
 /*Upcoming*/
 .upcoming{
