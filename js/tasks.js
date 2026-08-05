@@ -34,7 +34,7 @@ function displayTasks(){
             task.course.toLowerCase().includes(searchValue)
 
         const matchesPriority = 
-            priorityValue === "All"
+            priorityValue === "All" ||
             task.priority === priorityValue
 
         return matchesSearch && matchesPriority
@@ -46,7 +46,7 @@ function displayTasks(){
     //No tasks available 
     if(tasks.length === 0){
         taskContainer.innerHTML = `
-            <div class = "card"
+            <div class = "card">
                 <h3>No Tasks Found</h3>
                 <p>Add a task from the Add Task page.</p>
             </div>`
@@ -114,9 +114,12 @@ function displayTasks(){
 function deleteTask(id){
 
     const confirmDelete = confirm("Are you sure you want to delete this task?")
+
     if(!confirmDelete)return
+
     let tasks = JSON.parse(localStorage.getItem("tasks")) || []
     tasks = tasks.filter(task => task.id !== id)
+
     localStorage.setItem("tasks", JSON.stringify(tasks))
     displayTasks()
 }

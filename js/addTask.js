@@ -39,7 +39,7 @@ function saveTask(event){
     const tasks = JSON.parse(localStorage.getItem("tasks")) || []
 
     //Add new task
-    task.push(task)
+    tasks.push(task)
 
     //Save back to localStorage
     localStorage.setItem("tasks", JSON.stringify(tasks))
