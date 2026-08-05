@@ -109,3 +109,14 @@ function displayTasks(){
         
     })
 }
+
+//Delete task
+function deleteTask(id){
+
+    const confirmDelete = confirm("Are you sure you want to delete this task?")
+    if(!confirmDelete)return
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    tasks = tasks.filter(task => task.id !== id)
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+    displayTasks()
+}
