@@ -82,7 +82,7 @@ function displayUpcomingTasks(tasks){
 
             <p><strong>Priority:</strong> ${task.priority}</p>
 
-            <p>${task.description}</p>
+            <p><strong>Description:</strong>${task.description}</p>
 
         `
 
