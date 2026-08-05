@@ -126,11 +126,49 @@ function deleteTask(id){
 function toggleComplete(id){
     const tasks = JSON.parse(localStorage.getItem("tasks")) || []
     const task = tasks.find(task => task.id === id)
-    
+
     if(task){
         task.completed = !task.completed
     }
 
     localStorage.setItem("tasks", JSON.stringify(tasks))
+    displayTasks()
+}
+
+//Edit task
+
+function editTask(id){
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    const task = tasks.find(task => task.id === id)
+
+    if(!task) return
+
+    const newTitle = prompt(
+        "Edit task title:",
+        task.title
+    )
+
+    if(newTitle === null) return
+
+    const newCourse = prompt(
+        "Edit course:",
+        task.course
+    )
+
+    if(newCourse === null) return
+
+    const newDescription = prompt(
+        "Edit description:",
+        task.description
+    )
+
+    if(newDescription === null) return
+
+    task.title = newTitle.trim()
+    task.course = newCourse.trim()
+    task.description = newDescription.trim()
+
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+
     displayTasks()
 }
