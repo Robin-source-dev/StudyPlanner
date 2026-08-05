@@ -120,3 +120,17 @@ function deleteTask(id){
     localStorage.setItem("tasks", JSON.stringify(tasks))
     displayTasks()
 }
+
+//Mark task as completed
+
+function toggleComplete(id){
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || []
+    const task = tasks.find(task => task.id === id)
+    
+    if(task){
+        task.completed = !task.completed
+    }
+
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+    displayTasks()
+}
