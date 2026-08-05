@@ -92,8 +92,9 @@ nav a:hover,nav a.active{
     color:#0f172a;
 }
 .card p{
-    font-size:1.5rem;
+    font-size:1.3rem;
     font-weight:normal;
+    color: #6b7280
 }
 /*Upcoming*/
 .upcoming{
@@ -142,7 +143,7 @@ nav a:hover,nav a.active{
     color: #2563eb;
 }
 .feature-card p{
-    color: #6b7280;;
+    color: #6b7280;
 }
 /*Forms*/
 form{
